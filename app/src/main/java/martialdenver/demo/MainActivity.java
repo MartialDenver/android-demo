@@ -1,30 +1,25 @@
 package martialdenver.demo;
 
 import android.os.Bundle;
-import android.renderscript.Script;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.telephony.mbms.MbmsErrors;
 import android.view.View;
 
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
-
-import martialdenver.demo.databinding.ActivityMainBinding;
-
-import android.view.Menu;
-import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import javax.xml.transform.Result;
 
-public class MainActivity extends AppCompatActivity {
+
+import java.util.ArrayList;
+
+
+public class MainActivity<ScriptEngine, ScriptException extends Throwable> extends AppCompatActivity {
     TextView workingsTV;
     TextView resultsTV;
-    private String workings;
+
+    String workings = "";
+    String formula = "";
+    String tempFormula = "";
+
 
 
     @Override
@@ -48,9 +43,23 @@ public class MainActivity extends AppCompatActivity {
         workingsTV.setText("");
         workings = "";
         resultsTV.setText("");
+        leftBracket = true;
     }
 
+    boolean leftBracket = true;
+
     public void bracketsOnClick(View view) {
+
+        if(leftBracket)
+        {
+            setWorkings("(");
+            leftBracket = false;
+        }
+        else
+        {
+            setWorkings(")");
+            leftBracket = true;
+        }
     }
 
     public void powerofOnClick(View view) {
@@ -58,26 +67,75 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void equalsOnClick(View view) {
-        Double result = null;
-        Object shortName;
-        Script engine = new ScriptEngineManager().getEngineByName(shortName:"rhino");
-        try {
-            result = (double)engine.eval(workings);
-        } catch (Exception e) {
-            Toast.makeText(this, "Invalid Input", Toast.LENGTH_SHORT).show();
+    public void equalsOnClick(View view) throws ScriptException {
+
+        ScriptEngine engine = new ScriptEngineManager().getEngineByName("rhino");
+        checkForPowerOf();
+
+        Double result = (double) engine;
+
+        if(result != null)
+            resultsTV.setText(String.valueOf(result.doubleValue()));
+
+    }
+
+    private void checkForPowerOf()
+    {
+        ArrayList<Integer> indexOfPowers = new ArrayList<>();
+        for(int i = 0; i < workings.length(); i++)
+        {
+            if (workings.charAt(i) == '^')
+                indexOfPowers.add(i);
         }
 
-        if (result != null)
-            resultsTV.setText(String.valueOf(result.doubleValue()));
+        formula = workings;
+        tempFormula = workings;
+        for(Integer index: indexOfPowers)
+        {
+            changeFormula(index);
+        }
+        formula = tempFormula;
+    }
+
+    private void changeFormula(Integer index)
+    {
+        String numberLeft = "";
+        String numberRight = "";
+
+        for(int i = index + 1; i< workings.length(); i++)
+        {
+            if(isNumeric(workings.charAt(i)))
+                numberRight = numberRight + workings.charAt(i);
+            else
+                break;
+        }
+
+        for(int i = index - 1; i >= 0; i--)
+        {
+            if(isNumeric(workings.charAt(i)))
+                numberLeft = numberLeft + workings.charAt(i);
+            else
+                break;
+        }
+
+        String original = numberLeft + "^" + numberRight;
+        String changed = "Math.pow("+numberLeft+","+numberRight+")";
+        tempFormula = tempFormula.replace(original,changed);
+    }
+
+    private boolean isNumeric(char c)
+    {
+        if((c <= '9' && c >= '0') || c == '.')
+            return true;
+
+        return false;
     }
 
     public void decimalOnClick(View view) {
         setWorkings(".");
     }
 
-    public void zeroOnClick(View view) {
-        setWorkings("0");
+    public void zeroOnClick(View view) { setWorkings("0");
     }
 
 
@@ -132,6 +190,7 @@ public class MainActivity extends AppCompatActivity {
     public void oneOnClick(View view) {
         setWorkings("1");
     }
+
 }
 
 

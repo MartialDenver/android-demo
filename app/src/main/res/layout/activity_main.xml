@@ -63,7 +63,7 @@
                 android:background="@null"
                 android:textColor="@color/red"
                 android:onClick="clearOnClick"
-                android:text="C">
+                android:text="C"/>
 
             <Button
                 android:layout_width="0dp"
@@ -73,7 +73,7 @@
                 android:background="@null"
                 android:textColor="@color/orange"
                 android:onClick="bracketsOnClick"
-                android:text="()">
+                android:text="()"/>
 
             <Button
                 android:layout_width="0dp"
@@ -83,7 +83,7 @@
                 android:background="@null"
                 android:textColor="@color/orange"
                 android:onClick="powerofOnClick"
-                android:text="^">
+                android:text="^"/>
 
             <Button
                 android:layout_width="0dp"
@@ -93,7 +93,7 @@
                 android:background="@null"
                 android:textColor="@color/orange"
                 android:onClick="divisionOnClick"
-                android:text="/">
+                android:text="/"/>
 
         </LinearLayout>
 
@@ -110,7 +110,7 @@
                 android:background="@null"
                 android:textColor="@color/white"
                 android:onClick="sevenOnClick"
-                android:text="7">
+                android:text="7"/>
 
             <Button
                 android:layout_width="0dp"
@@ -120,7 +120,7 @@
                 android:background="@null"
                 android:textColor="@color/white"
                 android:onClick="heightOnClick"
-                android:text="8">
+                android:text="8"/>
 
             <Button
                 android:layout_width="0dp"
@@ -130,7 +130,7 @@
                 android:background="@null"
                 android:textColor="@color/white"
                 android:onClick="nineOnClick"
-                android:text="9">
+                android:text="9"/>
 
             <Button
                 android:layout_width="0dp"
@@ -140,7 +140,7 @@
                 android:background="@null"
                 android:textColor="@color/orange"
                 android:onClick="timesOnClick"
-                android:text="X">
+                android:text="X"/>
 
         </LinearLayout>
 
@@ -157,7 +157,7 @@
                 android:background="@null"
                 android:textColor="@color/white"
                 android:onClick="fourOnClick"
-                android:text="4">
+                android:text="4"/>
 
             <Button
                 android:layout_width="0dp"
@@ -167,7 +167,7 @@
                 android:background="@null"
                 android:textColor="@color/white"
                 android:onClick="fiveOnClick"
-                android:text="5">
+                android:text="5"/>
 
             <Button
                 android:layout_width="0dp"
@@ -177,7 +177,7 @@
                 android:background="@null"
                 android:textColor="@color/white"
                 android:onClick="sixOnClick"
-                android:text="6">
+                android:text="6"/>
 
             <Button
                 android:layout_width="0dp"
@@ -187,7 +187,7 @@
                 android:background="@null"
                 android:textColor="@color/orange"
                 android:onClick="minusOnClick"
-                android:text="-">
+                android:text="-"/>
 
         </LinearLayout>
 
@@ -204,7 +204,7 @@
                 android:background="@null"
                 android:textColor="@color/white"
                 android:onClick="oneOnClick"
-                android:text="1">
+                android:text="1"/>
 
             <Button
                 android:layout_width="0dp"
@@ -214,7 +214,7 @@
                 android:background="@null"
                 android:textColor="@color/white"
                 android:onClick="twoOnClick"
-                android:text="2">
+                android:text="2"/>
 
             <Button
                 android:layout_width="0dp"
@@ -224,7 +224,7 @@
                 android:background="@null"
                 android:textColor="@color/white"
                 android:onClick="threeOnClick"
-                android:text="3">
+                android:text="3"/>
 
             <Button
                 android:layout_width="0dp"
@@ -234,7 +234,7 @@
                 android:background="@null"
                 android:textColor="@color/orange"
                 android:onClick="plusOnClick"
-                android:text="+">
+                android:text="+"/>
 
         </LinearLayout>
 
@@ -251,7 +251,7 @@
                 android:background="@null"
                 android:textColor="@color/white"
                 android:onClick="decimalOnClick"
-                android:text=".">
+                android:text="."/>
 
             <Button
                 android:layout_width="0dp"
@@ -261,7 +261,7 @@
                 android:background="@null"
                 android:textColor="@color/white"
                 android:onClick="zeroOnClick"
-                android:text="0">
+                android:text="0"/>
 
             <Button
                 android:layout_width="0dp"
@@ -271,7 +271,7 @@
                 android:background="@color/orange"
                 android:textColor="@color/white"
                 android:onClick="equalsOnClick"
-                android:text="=">
+                android:text="="/>
 
         </LinearLayout>
 
